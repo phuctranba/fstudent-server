@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.zipenter.fstudent.web.screens.book">
+    <data>
+        <instance id="bookDc"
+                  class="com.zipenter.fstudent.entity.Book"
+                  view="book-view">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="bookDc">
+                <column width="250px">
+                    <pickerField id="userField" property="user">
+                        <actions>
+                            <action id="lookup" type="picker_lookup"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </pickerField>
+                    <textArea id="nameField" property="name" rows="5"/>
+                    <textArea id="descriptionField" property="description" rows="5"/>
+                    <lookupField id="typeSourceField" property="typeSource"/>
+                    <lookupField id="typeFileField" property="typeFile"/>
+                    <pickerField id="majorField" property="major">
+                        <actions>
+                            <action id="lookup" type="picker_lookup"/>
+                            <action id="clear" type="picker_clear"/>
+                        </actions>
+                    </pickerField>
+                    <textField id="viewField" property="view"/>
+                    <textField id="scoreField" property="score"/>
+                    <textArea id="avatarField" property="avatar" rows="5"/>
+                    <textArea id="linkStoreField" property="linkStore" rows="5"/>
+                    <dateField id="dateUploadField" property="dateUpload"/>
+                    <dateField id="dateDeleteField" property="dateDelete"/>
+                    <textField id="numOfReportField" property="numOfReport"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

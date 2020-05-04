@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="bookCasesTable"
+        messagesPack="com.zipenter.fstudent.web.screens.bookcase">
+    <data readOnly="true">
+        <collection id="bookCasesDc"
+                    class="com.zipenter.fstudent.entity.BookCase"
+                    view="bookCase-view">
+            <loader id="bookCasesDl">
+                <query>
+                    <![CDATA[select e from fstudent_BookCase e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="bookCasesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="bookCasesTable"
+                dataLoader="bookCasesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="bookCasesTable"
+                    width="100%"
+                    dataContainer="bookCasesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="user"/>
+                <column id="book"/>
+                <column id="page"/>
+                <column id="score"/>
+                <column id="favourite"/>
+                <column id="done"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="bookCasesTable.create"/>
+                <button id="editBtn" action="bookCasesTable.edit"/>
+                <button id="removeBtn" action="bookCasesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

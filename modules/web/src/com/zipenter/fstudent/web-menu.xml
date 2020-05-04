@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-fstudent" insertBefore="administration">
+        <item screen="fstudent_UserProfile.browse"/>
+        <item screen="fstudent_Provincial.browse"/>
+        <item screen="fstudent_School.browse"/>
+        <item screen="fstudent_Major.browse"/>
+        <item screen="fstudent_District.browse"/>
+        <item screen="fstudent_Book.browse"/>
+        <item screen="fstudent_BookCase.browse"/>
+    </menu>
+</menu-config>

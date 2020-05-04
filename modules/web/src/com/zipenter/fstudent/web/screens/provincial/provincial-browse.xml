@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="provincialsTable"
+        messagesPack="com.zipenter.fstudent.web.screens.provincial">
+    <data readOnly="true">
+        <collection id="provincialsDc"
+                    class="com.zipenter.fstudent.entity.Provincial"
+                    view="provincial-view">
+            <loader id="provincialsDl">
+                <query>
+                    <![CDATA[select e from fstudent_Provincial e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="provincialsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="provincialsTable"
+                dataLoader="provincialsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="provincialsTable"
+                    width="100%"
+                    dataContainer="provincialsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="area"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="provincialsTable.create"/>
+                <button id="editBtn" action="provincialsTable.edit"/>
+                <button id="removeBtn" action="provincialsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
