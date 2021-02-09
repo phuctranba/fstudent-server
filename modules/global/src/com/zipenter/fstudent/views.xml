@@ -4,10 +4,9 @@
     <view entity="fstudent_UserProfile" name="userProfile-view" extends="_local">
         <property name="user" view="_minimal"/>
         <property name="school" view="_minimal"/>
-        <property name="major" view="_minimal">
-            <property name="faculty"/>
-        </property>
+        <property name="major" view="_minimal"/>
         <property name="district" view="_minimal"/>
+        <property name="avatarId" view="_minimal"/>
     </view>
     <view entity="fstudent_Provincial" name="provincial-view" extends="_local"/>
     <view entity="fstudent_School" name="school-view" extends="_local">
@@ -24,6 +23,8 @@
     <view entity="fstudent_Book" name="book-view" extends="_local">
         <property name="user" view="_minimal"/>
         <property name="major" view="_minimal"/>
+        <property name="avatarId" view="_minimal"/>
+        <property name="fileId" view="_minimal"/>
     </view>
     <view entity="fstudent_BookCase" name="bookCase-view" extends="_local">
         <property name="user" view="_minimal"/>

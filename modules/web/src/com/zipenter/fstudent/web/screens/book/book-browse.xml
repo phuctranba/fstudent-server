@@ -41,7 +41,7 @@
                 <column id="major"/>
                 <column id="view"/>
                 <column id="score"/>
-                <column id="linkStore"/>
+                <column id="fileId"/>
                 <column id="dateUpload"/>
                 <column id="numOfReport"/>
             </columns>

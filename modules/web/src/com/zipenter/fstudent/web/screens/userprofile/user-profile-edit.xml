@@ -47,7 +47,7 @@
                     <lookupField id="genderField" property="gender"/>
                     <textField id="numOfBookField" property="numOfBook"/>
                     <textField id="firstNameField" property="firstName"/>
-                    <textArea id="avatarField" property="avatar" rows="5"/>
+                    <textArea id="avatarField" property="avatarId" rows="5"/>
                     <textField id="middleNameField" property="middleName"/>
                     <textField id="lastNameField" property="lastName"/>
                 </column>

@@ -1,0 +1,2 @@
+alter table FSTUDENT_BOOK add constraint FK_FSTUDENT_BOOK_ON_AVATAR_ID foreign key (AVATAR_ID_ID) references SYS_FILE(ID);
+create index IDX_FSTUDENT_BOOK_ON_AVATAR_ID on FSTUDENT_BOOK (AVATAR_ID_ID);

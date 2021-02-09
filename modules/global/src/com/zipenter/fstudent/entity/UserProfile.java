@@ -1,6 +1,7 @@
 package com.zipenter.fstudent.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.security.entity.User;
 
@@ -65,9 +66,9 @@ public class UserProfile extends StandardEntity {
     @Column(name = "FIRST_NAME", nullable = false)
     protected String firstName;
 
-    @Lob
-    @Column(name = "AVATAR", unique = true)
-    protected String avatar;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "AVATAR_ID_ID")
+    protected FileDescriptor avatarId;
 
     @Column(name = "MIDDLE_NAME")
     protected String middleName;
@@ -75,6 +76,14 @@ public class UserProfile extends StandardEntity {
     @NotNull
     @Column(name = "LAST_NAME", nullable = false)
     protected String lastName;
+
+    public void setAvatarId(FileDescriptor avatarId) {
+        this.avatarId = avatarId;
+    }
+
+    public FileDescriptor getAvatarId() {
+        return avatarId;
+    }
 
     public District getDistrict() {
         return district;
@@ -106,14 +115,6 @@ public class UserProfile extends StandardEntity {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
     }
 
     public Integer getNumOfBook() {

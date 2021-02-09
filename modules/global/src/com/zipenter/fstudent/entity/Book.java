@@ -1,6 +1,7 @@
 package com.zipenter.fstudent.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.security.entity.User;
 
@@ -49,14 +50,14 @@ public class Book extends StandardEntity {
     protected Integer score;
 
     @NotNull
-    @Lob
-    @Column(name = "AVATAR", nullable = false)
-    protected String avatar;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "AVATAR_ID_ID")
+    protected FileDescriptor avatarId;
 
     @NotNull
-    @Lob
-    @Column(name = "LINK_STORE", nullable = false)
-    protected String linkStore;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "LINK_STORE_ID")
+    protected FileDescriptor fileId;
 
     @Temporal(TemporalType.DATE)
     @NotNull
@@ -69,6 +70,22 @@ public class Book extends StandardEntity {
 
     @Column(name = "NUM_OF_REPORT")
     protected Integer numOfReport;
+
+    public void setFileId(FileDescriptor fileId) {
+        this.fileId = fileId;
+    }
+
+    public FileDescriptor getFileId() {
+        return fileId;
+    }
+
+    public void setAvatarId(FileDescriptor avatarId) {
+        this.avatarId = avatarId;
+    }
+
+    public FileDescriptor getAvatarId() {
+        return avatarId;
+    }
 
     public Integer getNumOfReport() {
         return numOfReport;
@@ -92,22 +109,6 @@ public class Book extends StandardEntity {
 
     public void setDateUpload(Date dateUpload) {
         this.dateUpload = dateUpload;
-    }
-
-    public String getLinkStore() {
-        return linkStore;
-    }
-
-    public void setLinkStore(String linkStore) {
-        this.linkStore = linkStore;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
     }
 
     public Integer getScore() {

@@ -34,8 +34,8 @@
                     </pickerField>
                     <textField id="viewField" property="view"/>
                     <textField id="scoreField" property="score"/>
-                    <textArea id="avatarField" property="avatar" rows="5"/>
-                    <textArea id="linkStoreField" property="linkStore" rows="5"/>
+                    <textArea id="avatarIdField" property="avatarId" rows="5"/>
+                    <textArea id="fileIdField" property="fileId" rows="5"/>
                     <dateField id="dateUploadField" property="dateUpload"/>
                     <dateField id="dateDeleteField" property="dateDelete"/>
                     <textField id="numOfReportField" property="numOfReport"/>

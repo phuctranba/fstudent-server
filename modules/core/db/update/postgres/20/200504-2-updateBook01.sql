@@ -1,0 +1,2 @@
+alter table FSTUDENT_BOOK add constraint FK_FSTUDENT_BOOK_ON_LINK_STORE foreign key (LINK_STORE_ID) references SYS_FILE(ID);
+create index IDX_FSTUDENT_BOOK_ON_LINK_STORE on FSTUDENT_BOOK (LINK_STORE_ID);
